@@ -131,18 +131,18 @@ final class OptionsTestCase extends TestCase
 		
 		Assert::false($options->isDevelopmentEnvironment());
 		
-		$options->setIsDevelopmentEnvironment(TRUE);
+		$options->setDevelopmentEnvironment(TRUE);
 		Assert::true($options->isDevelopmentEnvironment());
 		
-		$options->setIsDevelopmentEnvironment(FALSE);
+		$options->setDevelopmentEnvironment(FALSE);
 		Assert::false($options->isDevelopmentEnvironment());
 		
 		Assert::exception(function () use ($options) {
-			$options->setIsDevelopmentEnvironment('true');
+			$options->setDevelopmentEnvironment('true');
 		}, 'Nette\Utils\AssertionException');
 		
 		Assert::exception(function () use ($options) {
-			$options->setIsDevelopmentEnvironment('null');
+			$options->setDevelopmentEnvironment('null');
 		}, 'Nette\Utils\AssertionException');
 	}
 	

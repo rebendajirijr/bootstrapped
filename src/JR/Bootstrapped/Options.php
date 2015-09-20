@@ -174,7 +174,7 @@ class Options extends Object
 	 * @return self
 	 * @throws AssertionException
 	 */
-	public function setIsDevelopmentEnvironment($isDevelopmentEnvironment = self::DETECT_DEVELOPMENT_ENVIRONMENT)
+	public function setDevelopmentEnvironment($isDevelopmentEnvironment = self::DETECT_DEVELOPMENT_ENVIRONMENT)
 	{
 		Validators::assert($isDevelopmentEnvironment, 'bool|null');
 		$this->isDevelopmentEnvironment = ($isDevelopmentEnvironment === self::DETECT_DEVELOPMENT_ENVIRONMENT ? Helpers::detectDevelopmentEnvironment() : $isDevelopmentEnvironment);

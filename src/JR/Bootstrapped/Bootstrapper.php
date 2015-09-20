@@ -47,6 +47,10 @@ class Bootstrapper extends Object
 		$this->setupRobotLoader($configurator);
 		$this->setupConfiguration($configurator);
 		
+		if ($this->options->isDevelopmentEnvironment()) {
+			$configurator->setDebugMode(TRUE);
+		}
+		
 		return $configurator->createContainer();
 	}
 	

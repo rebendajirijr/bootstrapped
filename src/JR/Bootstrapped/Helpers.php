@@ -26,14 +26,14 @@ class Helpers extends Object
 	 */
 	public static function detectDevelopmentEnvironment()
 	{
-		global $argv;
-		
-		if (isset($_SERVER['SERVER_ADDR']) && in_array($_SERVER['SERVER_ADDR'], ['127.0.0.1', '::1'])) {
+		if (!isset($_SERVER) || !is_array($_SERVER)) {
+			return FALSE;
+		} elseif (isset($_SERVER['SERVER_ADDR']) && in_array($_SERVER['SERVER_ADDR'], ['127.0.0.1', '::1'])) {
 			return TRUE;
-		} elseif (isset($_SERVER['HTTP_HOST']) && (stripos($_SERVER['HTTP_HOST'], 'dev.') === 0 || stripos($_SERVER['HTTP_HOST'], 'localhost') !== FALSE)) { // TODO: better detection
+		} elseif (isset($_SERVER['HTTP_HOST']) && (stripos($_SERVER['HTTP_HOST'], 'dev.') === 0 || stripos($_SERVER['HTTP_HOST'], 'localhost') !== FALSE)) {
 			return TRUE;
-		} elseif (isset($argv) && is_array($argv)) { // TODO: some better way of detection while in CLI mode
-			if (in_array('dev', $argv)) {
+		} elseif (isset($_SERVER['argv']) && is_array($_SERVER['argv'])) {
+			if (in_array('dev', $_SERVER['argv'])) {
 				return TRUE;
 			}
 		}
