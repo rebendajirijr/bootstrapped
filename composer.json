@@ -1,0 +1,27 @@
+{
+    "name": "jr/bootstrapped",
+    "description": "Defines common way to bootstrap a Nette-powered application.",
+    "authors": [
+        {
+            "name": "RebendaJiri",
+            "email": "jiri.rebenda@htmldriven.com"
+        }
+    ],
+	"license": "MIT",
+	"require": {
+		"nette/bootstrap": "~2.3.0",
+		"nette/utils": "~2.3.0"
+	},
+	"require-dev": {
+		"nette/tester": "~1.5",
+		"tracy/tracy": "~2.3.0"
+	},
+	"autoload": {
+		"psr-0": {
+			"JR\\Bootstrapped\\": "src/"
+		},
+		"classmap": [
+			"src/JR/Bootstrapped/exceptions.php"
+		]
+	}
+}
